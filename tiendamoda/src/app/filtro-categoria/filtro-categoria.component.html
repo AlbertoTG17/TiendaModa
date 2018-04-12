@@ -1,0 +1,36 @@
+<!-- <div class="container" style="text-align: center;">   
+  <div *ngFor="let p of productosObservable | async" style="display: inline-block">
+    <div *ngIf = "categoria == p.categoria ">
+   
+      <div class="card" style="width: 18rem">
+        <img class="card-img-top"  src="{{p.imagen}}" alt="Card image cap" width="237px" height="180px">
+        <div class="card-body">
+          <h5 class="card-title">{{p.nombre}}</h5>
+          <p class="card-text">{{p.precio}}</p>
+          <a [routerLink] = "['/ProductoInfo', p.id]"><button>Mas detalles</button></a>
+          <a [routerLink] = "['/ProductoInfo', p.id]"><button>Añadir al carrito</button></a>
+        </div>
+      </div>    
+          
+    </div>
+  </div>
+</div> -->
+
+<div style="text-align: center">
+  <h1>{{categoria}}</h1>
+</div>
+<br>
+<div class="row">
+  <ng-container *ngFor="let p of productosObservable | async" align="center">
+    <div *ngIf = "categoria == p.categoria ">
+    <div class="card text-white bg-info mb-3" style="width: 18rem;border: 1px black solid">
+      <img class="card-img-top" src="{{p.imagen}}" alt="{{p.nombre}}" widht="300px" height="200px">
+      <div class="card-body">
+        <h5 class="card-title">{{p.nombre}}</h5>
+        <p class="card-text">{{p.precio}}€</p>
+        <a [routerLink]="['/ProductoInfo', p.id]" class="btn btn-light">Más detalles</a>
+      </div>
+    </div> &nbsp;&nbsp;&nbsp;
+    </div>
+  </ng-container>
+</div>

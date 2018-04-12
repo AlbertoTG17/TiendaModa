@@ -1,0 +1,33 @@
+<div id="login" class="form-container" *ngIf="!(firebaseService.user | async)">
+    <button (click)="loginGoogle()" class="btn btn-dark btn-lg btn-block"><i class="fab fa-google"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login or Signup With Google</button>
+    <button (click)="loginTwitter()" class="btn btn-dark btn-lg btn-block"><i class="fab fa-twitter"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login or Signup With Twitter</button>
+    <button (click)="loginGithub()" class="btn btn-dark btn-lg btn-block"><i class="fab fa-github"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login or Signup With GitHub</button>
+    <!--<button (click)="loginEmail()" class="btn btn-dark btn-lg btn-block"><i class="far fa-envelope-open"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login or Signup With E-mail</button>
+    <a routerLink="/signup" routerLinkActive="active" class="create-account-txt">No account? <strong>Create one here</strong></a>
+    -->
+  </div>
+<div id="login" class="form-container" *ngIf="firebaseService.user | async">
+  <button (click)="logout()">Logout</button>
+</div>
+
+
+<!-- <br/>
+<h1 *ngIf="firebaseService.user | async">Welcome {{ (firebaseService.user | async)?.email }}!</h1>
+<br/>
+
+<div *ngIf="!(firebaseService.user | async)">
+    <p><b>Para insertar debes estar regitrado.</b></p>
+    <input type="text" [(ngModel)]="email" placeholder="email"><br>
+    <input type="password" [(ngModel)]="password" placeholder="pass"><br>
+  
+    <button (click)="signup()" [disabled]="!email || !password">
+      Signup
+    </button>
+  
+    <button (click)="login()" [disabled]="!email || !password">
+      Login
+    </button>
+  </div>
+  <button (click)="logout()" *ngIf="firebaseService.user | async">
+      Logout
+  </button> -->

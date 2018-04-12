@@ -1,0 +1,16 @@
+<div style="text-align: center">
+  <h1>Todos los productos</h1>
+</div>
+<br>
+<div class="row">
+  <ng-container *ngFor="let p of productosObservable | async" align="center"> 
+    <div class="card text-white bg-info mb-3" style="width: 18rem;border: 1px black solid">
+      <img class="card-img-top" src="{{p.imagen}}" alt="{{p.nombre}}" widht="300px" height="200px">
+      <div class="card-body">
+        <h5 class="card-title">{{p.nombre}}</h5>
+        <p class="card-text">{{p.precio}}€</p>
+        <a [routerLink]="['/ProductoInfo', p.id]" class="btn btn-light">Más detalles</a>
+      </div>
+    </div> &nbsp;&nbsp;&nbsp;
+  </ng-container>
+</div>

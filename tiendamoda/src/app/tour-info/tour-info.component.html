@@ -1,0 +1,66 @@
+<div id="print-section">
+
+  <ng-container id="print-section" *ngFor="let p of productosObservable | async" style="padding: 2.5%">
+
+    <div *ngIf="id == p.id" align="center">
+
+      <h1>{{p.nombre}}</h1>
+      <br>
+      <div>
+        <div class="row">
+
+          <div class="col-4">
+            <div>
+              <br>
+              <br>
+              <p align="left">
+                <b>Descipcion:</b> {{p.nombre}}</p>
+              <p align="left">
+                <b>Precio:</b> {{p.precio}}€</p>
+              <p align="left">
+                <b>Categoria:</b> {{p.categoria}}</p>
+              <p align="left">
+                <b>Género:</b> {{p.genero}}</p>
+              <p align="left">
+                <b>
+                  <label>Unidades:</label>
+                </b>&nbsp;
+                <input type="number" #unidades value="1" size="3px">
+              </p>
+            </div>
+
+          </div>
+          <div class="col-6" align="center" style="width: 60%; height: 40%;">
+            <img src="{{p.imagen}}" alt="{{p.nombre}}" style="width: 50%; height: 50%; border-radius: 10px">
+          </div>
+          <div class="col-2">          
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-2">
+      </div>
+
+      <div class="row">
+        <div class="col-2">
+          <button type="button" class="btn btn-success" (click)="addCart(p, unidades)">Añadir
+            <i class="fas fa-shopping-cart"></i>
+          </button>
+        </div>
+        <div class="col-2">
+          <button type="button" class="btn btn-danger" (click)="printPDF()">PDF</button>
+        </div>
+        <div class="col-8"></div>
+      </div> <br/>
+      <div class="row">
+        
+        <span style="color: green">{{mensaje}}</span>
+      </div>
+
+    </div>
+
+  </ng-container>
+
+</div>

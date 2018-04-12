@@ -1,0 +1,43 @@
+
+<app-registro></app-registro>
+
+<div style="width: 70%" *ngIf="firebaseService.user | async">
+	
+	<br/>
+	<h2>Crear nuevo producto</h2>
+	<br/>
+	<form (ngSubmit)="onSubmit()">
+		
+		<div class="form-group">
+			<label for="ciudad">Nombre</label>
+			<input class="form-control" [(ngModel)]="producto.nombre" name="nombre" required/>
+		</div>
+		<div class="form-group">
+			<label for="descripcion">Id</label>
+			<input class="form-control" [(ngModel)]="producto.id" name="id" required/>
+		</div>
+		<div class="form-group">
+			<label for="descripcion">Genero (larga)</label>
+			<input class="form-control" [(ngModel)]="producto.genero" name="genero" required/>
+		</div>
+		<div class="form-group">
+			<label for="descripcion">Categoria</label>
+			<input class="form-control" [(ngModel)]="producto.categoria" name="categoria" required/>
+		</div>
+		<div class="form-group">
+			<label for="descripcion">Precio</label>
+			<input class="form-control" [(ngModel)]="producto.precio" name="precio" required/>
+		</div>
+		<div class="form-group">
+			<label for="precio">Imagen</label>
+			<input class="form-control" [(ngModel)]="producto.imagen" name="imagen" value="../../assets/madrid.jpg" required/>
+		</div>
+		<button type="submit" class="btn btn-primary">Enviar</button>
+	</form>
+
+</div>
+
+<div style="text-align: center;" [hidden]="!submitted">
+		<h4>Tu petición ha sido enviada correctamente</h4>
+		<button class="btn btn-success" (click)="nuevoContacto()">Add</button>
+</div>
